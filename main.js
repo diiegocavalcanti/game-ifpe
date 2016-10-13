@@ -14,14 +14,18 @@
 	$(nave).css('background-image', 'url(images/nave.svg)');
 	// Adiciona o elemento ao container do jogo
 	$('#container').append(nave);
-
+	// Velocidade que o setTimeOut é iniciado
 	var velocidade = 2000;
+	// Duração inicial da animação dos planetas
 	var duracao = 5000;
+	// Pontuação
 	var pontos = 0;
+	// Estágio
 	var estagio = 1;
+	// Variavel utilizada para verificar o status do BG da nave
 	var naveBg = true;
 
-
+	// SetInterval utilizado para a troca do background-image da nave
 	setInterval(function(){
 		if(naveBg == true){
 			$(nave).css('background-image', 'url(images/nave_2.svg)');
@@ -35,13 +39,18 @@
 
 	
 	var time = function(){
-	
+
+		// Verifica se o play ainda está ativo
 		if(play != false){
+
+			// Soma os pontos a cada nova iteração
 			pontos = pontos + 10;
 
 			if(pontos > (estagio*100)){
+				// adiciona um novo estágio a cada 100 pontos
 				estagio ++;
-				
+
+				// Diminui a velocidade a cada iteração para dificultar o jogo
 				if(velocidade > 1000){
 					velocidade = velocidade - 100;
 				}else{
@@ -51,6 +60,8 @@
 						velocidade = velocidade - 1;
 					}
 				}
+
+				// Diminui a velocidade da animação do planeta dificultando o jogo
 				if(duracao > 1000){
 					duracao = duracao - 100;
 				}else{
@@ -61,20 +72,24 @@
 					}
 				}
 			}
-
+			// Atualiza as informações na tela
 			$('.pontos').html(pontos);
 			$('.estagio').html(estagio);
 			$('.velocidade').html(velocidade);
 			$('.duracao').html(duracao);
+
+			// Chama a função para criar um novo planeta
 			newPlanet();
+
+			// Cria novamente um setTimeout passando a nova velocidade
 			setTimeout(time, velocidade);
 		}
 
 	}
 
-
+	// Cria um setTimeout pra executar a função time com a velocidade pre-determinada
 	
-	var play = setTimeout(time(), velocidade);
+	var play = setTimeout(time, velocidade);
 
 
 function newPlanet(){
@@ -99,6 +114,7 @@ function newPlanet(){
 
 }
 
+// Adiciona uma animação ao planeta para que ele desça atá o fim da tela
 function movimentoPlanet(planet){
 	$(planet).animate({
 		'margin-top': $(window).height()
@@ -115,6 +131,7 @@ function movimentoPlanet(planet){
 	});
 }
 
+// Calcula a posição do planeta e da nave e verifica quando eles se chocam 
 function colisao(planet){
 	var posPlanetX = Math.round($(planet).offset().left);
 	var posPlanetY = Math.round($(planet).offset().top);
@@ -130,6 +147,7 @@ function colisao(planet){
 	}
 }
 
+// Finaliza o jogo, remove todos os planetas da tela, pausa o timeout e remove a animação do espaço
 function stopGame(){
 	$('.planets').remove();
 	clearTimeout(play);
@@ -138,6 +156,7 @@ function stopGame(){
 	
 }
 
+// imprime na tela a pontuação e a mensagem de Game Over
 function gameOver(){
 	$('.mensagem h2').html('Você perdeu :(');
 	$('.mensagem h3').html('Sua pontuação: ' + pontos);	
@@ -150,18 +169,19 @@ function gameOver(){
 }
 
 
-
+// Pega a posição LEFT atual da nave
 function getLeft(){
 	var left = nave.style.marginLeft;
 	return parseInt(left.replace(/[^0-9]/g,''));
 }
-
+// Pega a posição BOTTOM da nave
 function getBottom(){
 	var bottom = nave.style.bottom;
 	return parseInt(bottom.replace(/[^0-9]/g,''));
 }
 
 
+// Evento para quando teclar
 $(document).on('keypress', function(event){
 
 	event.preventDefault();
@@ -181,9 +201,8 @@ $(document).on('keypress', function(event){
 		if($('.nave').offset().left <= ($(window).width() - 40)){
 			$('.nave').css('left', $('.nave').offset().left + 15 + 'px');
 		}
-		
-		
 	}
+	// resetar jogo
 	if(event.keyCode == 32){
 		window.location.reload();
 	}
