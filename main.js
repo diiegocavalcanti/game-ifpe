@@ -36,7 +36,6 @@
 		}
 	}, 500);
 
-
 	
 	var time = function(){
 
@@ -84,11 +83,8 @@
 			// Cria novamente um setTimeout passando a nova velocidade
 			setTimeout(time, velocidade);
 		}
-
 	}
-
 	// Cria um setTimeout pra executar a função time com a velocidade pre-determinada
-	
 	var play = setTimeout(time, velocidade);
 
 
@@ -107,9 +103,7 @@ function newPlanet(){
 	}
 
 	$(planet).css('margin-left', ppx);
-
 	$('#container').append(planet);
-
 	movimentoPlanet(planet);
 
 }
@@ -153,7 +147,6 @@ function stopGame(){
 	clearTimeout(play);
 	play = false;
 	$('#container').removeClass('bg-animation');
-	
 }
 
 // imprime na tela a pontuação e a mensagem de Game Over
