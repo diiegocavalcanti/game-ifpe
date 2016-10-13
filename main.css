@@ -1,0 +1,172 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+html, body{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	font-family: 'Lato', sans-serif;
+}
+.animation{
+	transition: all 0.2s ease-in-out;
+  	-webkit-transition: all 0.2s ease-in-out;
+  	-moz-transition: all 0.2s ease-in-out;
+  	-o-transition: all 0.2s ease-in-out;
+  	-ms-transition: all 0.2s ease-in-out;
+
+}
+.bg-animation{
+  -webkit-transition: 500ms;
+  -webkit-animation-name: espaco;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear
+}
+#container{
+	width: 100%;
+	height: 100%;
+	background-image:  url(images/bg.jpg);
+	background-position: center;
+	background-size: cover; 
+	overflow: hidden;	
+}
+.nave{
+	width: 40px;
+	height: 87px;
+	background-position: top center;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+
+@keyframes espaco{
+
+  from{
+    background-position: center 0px;
+  }
+  to{
+   background-position:  center 8000px;
+
+  }
+
+}
+@-webkit-keyframes espaco{
+
+  from{
+    	background-position: center 0px;  
+	}
+  to{
+    	background-position:  center 8000px;  
+	}
+
+}
+
+
+.bala{
+	width: 5px;
+	height: 20px;
+	background-color: #FFF;
+	border-radius: 5px;
+	position: absolute;
+	left: 50%;
+	transition: all 0.5s linear;
+  	-webkit-transition: all 0.5s linear;
+  	-moz-transition: all 0.5s linear;
+  	-o-transition: all 0.5s linear;
+  	-ms-transition: all 0.5s linear;
+}
+.tam-1{
+	width: 120px;
+	height: 120px;
+}
+.tam-2{
+	width: 180px;
+	height: 180px;
+}
+.tam-3{
+	width: 240px;
+	height: 240px;
+}
+.tam-4{
+	width: 300px;
+	height: 300px;
+}
+.planets{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	position: absolute;
+	margin-top: -120px;
+}
+.planet-1{
+	background-image: url(images/p1.svg);
+}
+.planet-2{
+	background-image: url(images/p2.svg);
+}
+.planet-3{
+	background-image: url(images/p3.svg);
+}
+.planet-4{
+	background-image: url(images/p4.svg);
+}
+.planet-5{
+	background-image: url(images/p5.svg);
+}
+.pontuacao{
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+	display: inline-block;
+	border:2px solid #FFF;
+}
+.pontuacao p{
+	color: #FFF;
+}
+.mensagem{
+	background-color: rgba(0,0,0,0.9);
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-right: 40px;
+	padding-left: 40px;
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	text-align: center;
+	border: 1px solid rgba(255,255,255, 0.5);
+	border-radius: 10px;
+}
+.mensagem h2{
+	color: #FFF;
+	font-size: 36px;
+}
+.mensagem h3{
+	color: #F9B24E;
+	font-size: 24px;
+}
+.controles{
+	background-image: url(images/controles.svg);
+	width: 95px;
+	height: 87px;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+}
+.ifpe{
+	background-image: url(images/ifpe.svg);
+	width: 164px;
+	height: 67px;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
