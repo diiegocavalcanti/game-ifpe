@@ -38,7 +38,6 @@
 
 	
 	var time = function(){
-
 		// Verifica se o play ainda está ativo
 		if(play != false){
 
@@ -59,7 +58,6 @@
 						velocidade = velocidade - 1;
 					}
 				}
-
 				// Diminui a velocidade da animação do planeta dificultando o jogo
 				if(duracao > 1000){
 					duracao = duracao - 100;
