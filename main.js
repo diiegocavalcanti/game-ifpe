@@ -141,6 +141,7 @@ function colisao(planet){
 
 // Finaliza o jogo, remove todos os planetas da tela, pausa o timeout e remove a animação do espaço
 function stopGame(){
+	$('.nave').hide('explode');
 	$('.planets').remove();
 	clearTimeout(play);
 	play = false;
